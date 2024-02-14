@@ -1,0 +1,572 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+video{
+    
+    width: 100%;
+}
+.header{
+    min-height: 10vh;
+    width: 100%;
+    position: relative;
+   
+ }
+
+ 
+.navbar{
+    width: 100%;
+    margin: auto;
+    padding: 10px 35px 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.logo{
+    width: 135PX;
+    height: 0px;
+    cursor: pointer;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+
+}
+.navbar ul li a{
+text-decoration: none;
+color: #fff;
+text-transform: uppercase;
+
+}
+.navbar ul li::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #fa1e3c;
+   display: block;
+   margin: auto;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+
+.text-box{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-750px,0px);
+    text-align: center;
+}
+
+.text-box h1{
+    /*background-color: rgb(22, 22, 37);*/
+    width: 620px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.btn:hover{
+border: 1px solid #f44336;
+background: #f44336;
+transition: 1s;
+}
+.img1sec{
+    background-color: #0e3966;
+    margin: 0;
+    padding: 0;
+}
+.img2sec{
+    background-color: #ecff18;
+}
+
+.img1{
+        display: flex;
+        position: relative;
+        top: 0px;
+        left: 14%;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.1s linear 0s;
+        opacity: 1;
+        background-color: transparent;
+        margin-bottom: 5%;
+}
+
+.img2{
+    position: relative;
+    right: 10%;
+    top: 0px;
+    left: 0px;
+    transition: opacity 0.1s linear 0s;
+    opacity: 1;
+}
+
+
+/* body{
+    background-color: #0e3966;
+    background-image: linear-gradient(#508dcf, #ffffff);
+} */
+
+
+
+@media(max-width: 700px){
+    .text-box h1{
+        font-size: 20px;
+    }
+    .navbar ul{
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        text-align: left;
+        z-index: 2;
+
+    }
+}
+/*-----course---*/
+.cards{
+    
+    align-self: center;
+    display: inline-block;
+}
+
+
+.flip-card,.flip-card1 {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    float: left;
+    padding: 40px;
+    display: grid;
+    perspective: 49rem; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner,.flip-card-inner1 {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner ,.flip-card1:hover .flip-card-inner1{
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back,.flip-card-front1, .flip-card-back1{
+    position: absolute;
+    width: 100%;
+    height:200px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front , .flip-card-front1{
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back,.flip-card-back1 {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .flip-card-back h1,.flip-card-back1 h1{
+    text-overflow: ellipsis;
+  }
+
+
+#course{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75),rgba(1, 5, 15, 0.75));
+    
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+
+/* .accordion-button {
+    
+} */
+
+.accordion-item {
+    border: 3px solid rgba(22, 111, 212, 0.15)
+}
+
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background: rgb(65, 61, 61);
+    color: #e8e8e8;
+}
+
+.accordion-button:not(.collapsed)::after  {
+    filter: brightness(00%) invert(30%);
+}
+
+.accordion-button:focus {
+    box-shadow: inherit;
+}
+
+.accordion-body{
+    background-color: rgb(90, 46, 46);
+}
+
+@media (max-width: 767px) {
+    .accordion-body h3 {
+        font-size: calc(.95rem + 1.5vw);
+    }
+}
+
+.contact{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(bg.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-image: url(../images/contactbg.jpg);
+    align-items: flex-end;
+    
+    }
+
+
+
+
+.text-center{
+    
+    text-align: left;
+    padding-top: 100px;
+    font-family: 'Ubuntu', sans-serif;
+    /* font-size: 35px; */
+    text-decoration: #fa1e3c;
+    color:  #323030;
+    }
+
+.c1{
+    /* background-color: ; */
+    position: relative;
+    padding-right: 0%;
+    padding-left: 0%;
+}
+.form{
+    max-width: 20%;
+    margin-left: 20PC;
+    padding-bottom: 10px;
+    /* background-color: ; */
+    }
+
+.form-input{
+    margin: 14px 0;
+    width: 100%; 
+    font-size: 19px;
+    border: 2px solid rgb(255, 252, 252);
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(245, 240, 240);
+}
+.submit:hover{
+    border: 1px solid #26f71e;
+    background: #35c730;
+    transition: 1s;
+}
+.submit{width: auto;
+    padding: 10px 18px;
+    background-color: #3bff4b;
+    display: inline-block;
+    text-decoration: none;
+    border-color: #ccc;
+    border-radius: 3pc;
+    padding: 12px 34px;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;}
+
+.contactuss{
+    
+    padding: 50px 50px;
+    position: relative;
+    text-align: right;
+    
+}
+.contactuss h5{
+    text-align: center;
+    padding-bottom: 10px;
+    text-decoration: solid;
+}
+
+.privacy{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    position: relative;
+    right: auto;
+    left: auto;
+
+}
+.privacy ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    right: auto;
+    left: auto;
+
+}
+.privacy ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    
+    }
+    .privacy ul li::after{
+        content: '';
+        height: 2px;
+        width: 0;
+        background: #fa1e3c;
+        display: block;
+        margin: auto;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+    .privacy ul li:hover::after{
+        width: 100%;
+    }
+    .media{
+        color: rgb(255, 255, 255);
+    }
+
+
+
+/* login form */
+
+.login{
+    padding: 150px;
+    background-size: cover;
+    position: relative;
+    background-image:url(../images/loginBG.png);
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+   
+}
+
+    /* Bordered form */
+form {
+    width: 30pc;
+    border: 5px solid #f1f1f1;
+    border-style: hidden;
+    border-radius: 20px;
+    background-color: rgb(186, 188, 231);
+    height: 25pc;
+  }
+  
+  /* Full-width inputs */
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  
+  /* Set a style for all buttons */
+ 
+  
+  button [type=submit]{
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 45%;
+      border-radius: 20px;
+    }
+    
+    .signupbtn{
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 45%;
+      border-radius: 20px;
+    }
+ 
+    .cancelbtn, .signupbtn {
+    float: left;
+    width: 45%;
+    border-radius: 25px;
+    margin: 0px 2.5%;
+    opacity: 0.9;
+    margin-bottom: 23px;
+    border-width: 0;
+  }
+
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 1;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    background: #f53123;
+    cursor: pointer;
+    padding: 14px 20px;
+    background-color: #f53123;
+  }
+  
+  
+  /* Center the avatar image inside this container */
+  .h1 {
+    text-align: center;
+    margin: 4px 0 12px 0;
+    padding-top: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Avatar image */
+  .h1{
+    width: 100%;
+    border-radius: 50%;
+    
+  }
+  
+  /* Add padding to containers */
+    .container {
+    padding: 16px;
+    
+    }
+  
+  /* The "Forgot password" text */
+    span.psw {
+    float: right;
+    padding-top: 16px;
+    }
+
+  /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+    span.psw {
+    display: block;
+    float: none;
+    
+    }
+    .cancelbtn {
+    width: 100%;
+    }
+    }
+
+
+
+    #accordionFlushExample{
+        width: 100%;
+    }
+
+.accordion-item{
+    
+    background-color: #ccc;
+}
+/* .accordion-button { */
+
+    /* background-color: rgb(128, 75, 75); */
+/* } */
+
+.accordion-body{
+    background-color: white;
+}
+
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    /* background: rgb(35,65,100); */
+
+    color: #e8e8e8;
+}
+
+.accordion-button:not(.collapsed)::after  {
+    filter: brightness(00%) invert(70%);
+}
+
+.accordion-button:focus {
+    box-shadow: inherit;
+}
+
+
+
+
+    footer{
+        background-image: linear-gradient(rgba(1, 5, 15, 0.75),#292929),url(images\bg.jpg);
+        background-position: center;
+        background-size: cover;
+        height: fit-content;
+        
+    }
+
+    #backToTop{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    padding: 8px 15px;
+    z-index: 3
+    }
+
+    .btn1{
+    display: block;
+}

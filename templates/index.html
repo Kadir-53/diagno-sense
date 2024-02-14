@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sickness Prediction System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('bg.webp'); /* Update the background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Set text color to contrast with background */
+            backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        nav {
+            background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
+            padding: 15px;
+            position:absolute
+             width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav img {
+            height: 40px; /* Adjust the height as needed */
+            margin-left: 10px;
+        }
+
+        /* ... (previous styles) ... */
+
+/* ... (previous styles) ... */
+section .system-content {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    text-align: center; /* Add this line to center-align text */
+}
+
+
+
+.about-section {
+    margin-top: 20px; /* Adjust margin as needed */
+    display: flex;
+    position: relative;
+    z-index: 1; /* Ensure this element is on top */
+}
+
+.about-section .about-text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    background: rgba(4, 26, 58, 0.8); /* Add a transparent background */
+}
+
+
+auth-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-btn,
+.login-btn {
+    background-color: #2ecc71; /* Green background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    
+}
+
+.login-btn {
+    background-color: #3498db; /* Blue background color for Log In button */
+}
+
+
+section {
+    flex-grow: 1; /* Allow the section to grow and take the remaining space */
+    margin-top: 60px; /* Adjusted to leave space for fixed navbar */
+    padding: 30px 50px;
+    display: flex;
+    position: relative;
+    z-index: 1; /* Ensure this element is on top */
+    margin: 0 80px;
+    
+}
+section .system-content{
+    text-align: left;
+    font-size: 55px ;
+}
+
+
+
+        footer {
+            background-color: rgba(4, 26, 58, 0.8);  /* Add alpha channel for transparency */
+            padding: 20px;
+            text-align: left;
+           
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer .about,
+        footer .social {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            nav img {
+                margin: 0; /* Adjust margin as needed */
+            }
+
+            section {
+                flex-direction: column;
+                text-align: center;
+                
+            }
+
+            .about-content {
+                padding: 10px;
+            }
+            section img {
+        display: none;
+}
+
+
+
+
+            section .system-content {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        text-align: center; /* Center the text within the container */
+    }
+
+    
+
+    .auth-buttons {
+        text-align: center;
+    }
+
+    .signup-btn,
+    .login-btn {
+        width: 100%;
+        margin-bottom: 10px;
+        align-items: center;
+        margin: 10px 0px;
+    }
+    
+     section{
+        padding: 5px;
+        margin: 0 20px;
+     }
+            section .about-text ,
+            section .system-content {
+                width: 100%;
+                text-align: center;
+                
+                
+                
+            }
+            section .system-content{
+                font-size:20px;
+                width: 100%;
+                
+                
+                
+            }
+
+            footer .about,
+            footer .social {
+                width: 100%;
+                float: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="sign.php">Signup</a>
+        </div>
+    </nav>
+
+<section>
+    <div class="system-content">
+        <!-- Your sickness prediction system content goes here -->
+        <h2 style="color: rgb(4, 26, 58, 0.8);  ">Welcome to Diagno-Sense</h2>
+        <p style="color: rgb(4, 26, 58, 0.8); font-size: 20px">Your gateway to proactive health management! We are at the forefront of healthcare innovation, proud to introduce our state-of-the-art Sickness Prediction System. <br><br>At Diagno-Sense, we believe in empowering individuals with the ability to take control of their health through cutting-edge technology.</p>
+        <div class="auth-buttons">
+            <button class="signup-btn" onclick="window.location.href='sign.php'">Sign Up </button>
+            <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+        </div>
+    </div>
+
+    
+</section>
+
+
+
+<section class="about-section">
+    <img src="aboutus.webp" alt="About Us Image" style="width: 40%;">
+    <div class="about-text">
+        
+        <h2> About Us</h2>
+        <p>Powered by advanced machine learning algorithms, our system transforms the input of your symptoms into a comprehensive analysis. As you share your symptoms through our user-friendly interface, our algorithms, finely tuned through continuous learning, sift through vast medical datasets to deliver rapid and accurate predictions regarding potential diseases. This personalized approach ensures that you receive tailored insights, providing you with the knowledge needed to take proactive steps towards your well-being.
+
+            With Diagno-Sense, predicting diseases is not just a function; it's a seamless and empowering experience. Welcome to a future where your health is anticipated, and tomorrow's well-being begins with the precision of today's technology.</p></div>
+    
+</section>
+
+
+
+    <footer>
+        <div class="about">
+            <p>About the System: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="social">
+            <p>Contact us on Instagram or Twitter: @sicknessprediction</p>
+        </div>
+    </footer>
+
+</body>
+</html>

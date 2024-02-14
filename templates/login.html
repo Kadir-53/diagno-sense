@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sickness Prediction System</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-image: url('bg login.jpg'); /* Update the background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Set text color to contrast with background */
+            backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100vh;
+            
+        }
+
+        nav {
+            background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
+            padding: 15px;
+            position:absolute
+             width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav img {
+            height: 40px; /* Adjust the height as needed */
+            margin-left: 10px;
+        }
+
+
+        section {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center vertically and horizontally */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        /* ... (previous styles) ... */
+
+        
+        footer {
+            background-color: rgba(4, 26, 58, 0.8);  /* Add alpha channel for transparency */
+            padding: 20px;
+            text-align: left;
+            margin-top: auto;
+           
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer .about,
+        footer .social {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+/* ... (remaining styles) ... */
+
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            nav img {
+                margin: 0; /* Adjust margin as needed */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
+        <div>
+            <a href="index.html">Home</a>
+            <a href="sign.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            
+        </div>
+    </nav>
+
+    <section>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <h2>Log In</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+    
+            <button type="submit">Log In</button>
+        </form>
+    </section>
+    
+   
+    
+
+</body>
+<footer>
+    <div class="about">
+        <p>About the System: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="social">
+        <p>Contact us on Instagram or Twitter: @sicknessprediction</p>
+    </div>
+</footer>
+</html>

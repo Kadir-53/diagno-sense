@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sickness Prediction System</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-image: url('bg login.jpg'); /* Update the background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Set text color to contrast with background */
+            backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100vh;
+            
+        }
+
+        nav {
+            background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
+            padding: 15px;
+            position:absolute
+             width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav img {
+            height: 40px; /* Adjust the height as needed */
+            margin-left: 10px;
+        }
+
+
+        section {
+    flex-grow: 1; /* Allow the section to grow and take the remaining space */
+    margin-top: 60px; /* Adjusted to leave space for fixed navbar */
+    padding: 30px 50px;
+    display: flex;
+    position: relative;
+    z-index: 1; /* Ensure this element is on top */
+    margin: 0 80px;
+    }
+
+    .about-section {
+    margin-top: 20px; /* Adjust margin as needed */
+    display: flex;
+    position: relative;
+    z-index: 1; /* Ensure this element is on top */
+}
+
+.about-section .about-text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px 20px;
+    background: rgba(4, 26, 58, 0.8); /* Add a transparent background */
+    font-size: large;
+}
+
+
+
+        footer {
+            background-color: rgba(4, 26, 58, 0.8);  /* Add alpha channel for transparency */
+            padding: 20px;
+            text-align: left;
+            margin-top: auto;
+           
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer .about,
+        footer .social {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+
+        .auth-buttons {
+        text-align: center;
+    }
+
+    .symptom-btn
+     {
+        width: 30%;
+        margin-bottom: 10px;
+        align-items: center;
+        margin: 10px 0px;
+        margin-top: 50px;
+        padding: 10px 0;
+    }
+    
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            nav img {
+                margin: 0; /* Adjust margin as needed */
+            }
+
+            .about-content {
+                padding: 0 10px;
+            }
+            section img {
+        display: none;
+            }
+
+            section{
+                padding: 10px 0;
+                text-align: center;
+                margin: 0 20px;
+            }
+
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
+        <div>
+            <a href="index.html">Home</a>
+            
+            <a href="contact.html">Contact Us</a>
+            <a href="login.html">Log In</a>
+        </div>
+    </nav>
+
+    <section class="about-section">
+        <img src="aboutus.webp" alt="About Us Image" style="width: 40%;">
+        <div class="about-text">
+            
+            <h2 style="text-align: center;"> About Us</h2>
+            <p>Our Sickness Prediction System simplifies the complex process of disease prediction. Users can easily input their symptoms into our user-friendly interface, and here's where the magic happens. Our advanced machine learning algorithms analyze this information, drawing insights from an extensive database of medical knowledge. 
+                This dynamic interplay allows us to swiftly and accurately predict potential diseases associated with the provided symptoms.
+                <br><br>    No more waiting for appointments or test results. With [Your Website Name], you gain access to rapid and real-time predictions. 
+                This immediacy empowers users to make informed decisions promptly, contributing to better health outcomes.</p>
+            
+                <div class="auth-buttons">
+                    <button class="symptom-btn" onclick="window.location.href='symptoms.html'">START </button>
+            </div>
+        
+
+                
+    </section>
+   
+    
+
+</body>
+<footer>
+    <div class="about">
+        <p>About the System: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="social">
+        <p>Contact us on Instagram or Twitter: @sicknessprediction</p>
+    </div>
+</footer>
+</html>
