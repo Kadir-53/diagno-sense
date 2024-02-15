@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Sickness Prediction System</title>
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block style %}
     <style>
          body {
             margin: 0;
@@ -126,19 +127,9 @@
             }
         }
     </style>
-</head>
-<body>
+{% endblock %}
 
-    <nav>
-        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
-        <div>
-            <a href="index.html">Home</a>
-            <a href="about us.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="sign.html">Signup</a>
-        </div>
-    </nav>
-
+{% block content %}
     <section>
         <h2 style="text-align: center; color: rgb(4, 26, 58, 0.8);" >Contact Us</h2>
         <form>
@@ -155,16 +146,5 @@
         </form>
     </section>
     
-   
-    
+{% endblock %}
 
-</body>
-<footer>
-    <div class="about">
-        <p>About the System: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="social">
-        <p>Contact us on Instagram or Twitter: @sicknessprediction</p>
-    </div>
-</footer>
-</html>

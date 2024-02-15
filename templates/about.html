@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Sickness Prediction System</title>
+{% extends 'base.html' %}
+
+    {% block title %}
+     About Us - Sickness Prediction System
+    {% endblock %}
+
+    {% block style %}
     <style>
          body {
             margin: 0;
             font-family: 'Times New Roman', serif;
-            background-image: url('bg login.jpg'); /* Update the background image URL */
+            background-image: url('bg login.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #fff; /* Set text color to contrast with background */
-            backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+            color: #fff; 
+            backdrop-filter: blur(5px); 
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -22,7 +23,7 @@
         }
 
         nav {
-            background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
+            background-color: rgba(4, 26, 58, 0.8); 
             padding: 15px;
             position:absolute
              width: 100%;
@@ -42,26 +43,26 @@
         }
 
         nav img {
-            height: 40px; /* Adjust the height as needed */
+            height: 40px; 
             margin-left: 10px;
         }
 
 
         section {
-    flex-grow: 1; /* Allow the section to grow and take the remaining space */
-    margin-top: 60px; /* Adjusted to leave space for fixed navbar */
+    flex-grow: 1; 
+    margin-top: 60px;
     padding: 30px 50px;
     display: flex;
     position: relative;
-    z-index: 1; /* Ensure this element is on top */
+    z-index: 1; 
     margin: 0 80px;
     }
 
     .about-section {
-    margin-top: 20px; /* Adjust margin as needed */
+    margin-top: 20px; 
     display: flex;
     position: relative;
-    z-index: 1; /* Ensure this element is on top */
+    z-index: 1;
 }
 
 .about-section .about-text {
@@ -140,18 +141,10 @@
 
         }
     </style>
-</head>
-<body>
+    {% endblock %}
 
-    <nav>
-        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
-        <div>
-            <a href="index.html">Home</a>
-            
-            <a href="contact.html">Contact Us</a>
-            <a href="login.html">Log In</a>
-        </div>
-    </nav>
+
+{% block content %}
 
     <section class="about-section">
         <img src="aboutus.webp" alt="About Us Image" style="width: 40%;">
@@ -172,14 +165,5 @@
     </section>
    
     
+{% endblock %}
 
-</body>
-<footer>
-    <div class="about">
-        <p>About the System: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="social">
-        <p>Contact us on Instagram or Twitter: @sicknessprediction</p>
-    </div>
-</footer>
-</html>

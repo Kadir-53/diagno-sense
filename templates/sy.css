@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('bg.webp'); /* Update the background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Set text color to contrast with background */
+    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+nav {
+    background-color: rgba(4, 26, 58, 0.8); 
+    padding: 15px;
+    position:absolute
+     width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
