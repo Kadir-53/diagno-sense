@@ -25,15 +25,14 @@ Sickness Prediction System using Symptoms
   nav {
       background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
       padding: 15px;
+      position:absolute
        width: 100%;
-       
       top: 0;
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
   }
-
   nav a {
       color: #fff;
       text-decoration: none;
@@ -140,6 +139,12 @@ font-size: 55px ;
           text-align: center;
 
       }
+    #container faq-section {
+        word-wrap: break-word;
+        flex-direction: column;
+        text-align: center; padding: 10px;
+        padding:0 10px;
+    }
 
       .about-content {
           padding: 10px;
@@ -172,13 +177,6 @@ font-size: 55px ;
   margin: 10px 0px;
 }
 
-    .faq-section {
-      padding-top: 50px;
-      background-color: #041a3a;    
-      color: white;
-      margin-bottom:0 50px;
-
-    }
     
     section{
       padding: 5px;
@@ -200,13 +198,19 @@ font-size: 55px ;
 
       }
 
-      footer .about,
-      footer .social {
-          width: 100%;
-          float: none;
-          margin-bottom: 20px;
-      }
+      
   }
+    .faq-section {
+      padding-top: 50px;
+      padding:20px 50px;
+      color: white;
+      margin-bottom:0 50px;
+
+      padding:10px 10px;
+
+    }
+
+    
 </style>
 {% endblock %}
 
@@ -238,66 +242,65 @@ font-size: 55px ;
 
 
 
-   <div class="container faq-section ">
-     <h2 style="color:rgba(4, 26, 58, 0.8)" >FAQs</h2>
+<div class="container faq-section " >
+    <h2 class="text-center mb-4" style="color: rgba(4, 26, 58, 0.8)">FAQs</h2>
+    <div class="accordion" id="accordionExample">
 
-     <div class="accordion" id="accordionExample">
-       <div class="card text-white "style="background-color:  rgba(4, 26, 58, 0.8);">
-         <div class="card-header" id="headingOne">
-           <h5 class="mb-0">
-             <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-             What is the purpose of the disease prediction system?
-             </button>
-           </h5>
-         </div>
-         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-           <div class="card-body">
-             The disease prediction system aims to analyze symptoms provided by the user and predict potential diseases or health conditions based on the input data and pre-existing medical knowledge.</div>
-         </div>
-       </div><br>
-       <div class="card text-white"style="background-color: rgba(4, 26, 58, 0.8);">
-         <div class="card-header" id="headingTwo">
-           <h5 class="mb-0">
-             <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                 How accurate are the predictions made by the system?
-             </button>
-           </h5>
-         </div>
-         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-           <div class="card-body">
-             The accuracy of predictions depends on various factors, including the quality of input data, the complexity of the underlying algorithms, and the availability of comprehensive medical databases. Our system strives to provide accurate predictions based on the best available information. </div>
-         </div>
-       </div><br>
-       <!-- Add more FAQ items here -->
-       <div class="card text-white"style="background-color: rgba(4, 26, 58, 0.8);">
-         <div class="card-header" id="headingThree">
-           <h5 class="mb-0">
-             <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                 Is the disease prediction system a substitute for professional medical advice?
-             </button>
-           </h5>
-         </div>
-         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-           <div class="card-body">
-             No, the disease prediction system is not a substitute for professional medical advice, diagnosis, or treatment. It is meant to be used as a supportive tool for informational purposes only. Users are encouraged to consult with qualified healthcare professionals for personalized medical advice and diagnosis.</div>
-         </div>
-       </div><br>
+        <!-- FAQ item 1 -->
+        <div class="card text-white mb-3 " >
+          <div class="card-header" id="headingOne"style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What is the purpose of the disease prediction system?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body"style="color: rgba(4, 26, 58, 0.8);">
+              The disease prediction system aims to analyze symptoms provided by the user and predict potential diseases or health conditions based on the input data and pre-existing medical knowledge.
+            </div>
+          </div>
+        </div>
 
-       <div class="card text-white"style="background-color: rgba(4, 26, 58, 0.8);">
-         <div class="card-header" id="headingfour">
-           <h5 class="mb-0">
-             <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseTwo">
-                 Can I trust the recommendations provided by the system?
-             </button>
-           </h5>
-         </div>
-         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
-           <div class="card-body">
-             While the system aims to provide helpful recommendations based on the input symptoms, it's essential to interpret the results with caution. The system's recommendations should be considered as preliminary information, and users are encouraged to seek professional medical advice for accurate diagnosis and treatment.</div>
-         </div>
-       </div>
-     </div>
-   </div>
+        <!-- FAQ item 2 -->
+        <div class="card text-white  mb-3">
+          <div class="card-header" id="headingTwo"style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                How accurate are the predictions made by the system?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body"style="color: rgba(4, 26, 58, 0.8);">
+              The accuracy of predictions depends on various factors, including the quality of input data, the complexity of the underlying algorithms, and the availability of comprehensive medical databases. Our system strives to provide accurate predictions based on the best available information.
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- FAQ item 4 -->
+        <div class="card text-white mb-3">
+          <div class="card-header" id="headingFour"style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Can I trust the recommendations provided by the system?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body" style="color: rgba(4, 26, 58, 0.8);">
+              While the system aims to provide helpful recommendations based on the input symptoms, it's essential to interpret the results with caution. The system's recommendations should be considered as preliminary information, and users are encouraged to seek professional medical advice for accurate diagnosis and treatment.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</div>
+
+
 {% endblock %}
 
 
