@@ -1,7 +1,7 @@
 body {
      margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url("../static/images/bg.webp"); /* Update the background image URL */
+    background-image: url("../static/images/symptomBG.webp"); /* Update the background image URL */
     background-size: cover;
     background-position: center; {% endcomment %}
     background-repeat: no-repeat;

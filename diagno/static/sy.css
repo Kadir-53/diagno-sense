@@ -1,11 +1,11 @@
 body {
      margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url("../static/images/bg.webp"); /* Update the background image URL */
+    background-image: url("../static/images/symptomBG.webp"); /* Update the background image URL */
     background-size: cover;
     background-position: center; {% endcomment %}
     background-repeat: no-repeat;
-
+    background-attachment: fixed;
     backdrop-filter: blur(5px); /* Adjust the blur value as needed */
     min-height: 100vh;
     min-height: 100vh;}
@@ -61,6 +61,22 @@ nav img {
         max-width: 500px;
         border-radius: 10px;
 
+
+}
+
+button[type="submit"] {
+    background-color:rgba(29, 143, 174, 0.8); /* Set default button color to blue */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: green; /* Change button color to green on hover */
 }
 #symptoms{
     width: 200px; 
