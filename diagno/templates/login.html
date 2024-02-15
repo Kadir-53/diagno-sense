@@ -62,7 +62,7 @@ Log In
             width: 100%;
             box-sizing: border-box;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgb(4, 26, 58, 0.8);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
@@ -140,7 +140,7 @@ Log In
 {% block content %}
 
     <section>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
             <h2>Log In</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
