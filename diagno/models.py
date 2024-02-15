@@ -8,8 +8,9 @@ class Users(db.Model):
   lname = db.Column(db.String(length=20), nullable=False)
   age = db.Column(db.Integer(), nullable=False)
   gender = db.Column(db.String(length=20), nullable=False)
-  email = db.Column(db.String(length=50), nullable=False, uniqu=True)
+  email = db.Column(db.String(length=50), nullable=False, unique=True)
   password_hash = db.Column(db.String(length=60), nullable=False)
+
 
 # u1 = Users(fname='John', lname='Doe', age=20, gender='Male', email='john@gmail.com', password_hash='123456')
 

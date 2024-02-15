@@ -47,7 +47,6 @@ Sign Up
             margin-left: 10px;
         }
 
-
         section {
             flex-grow: 1;
             display: flex;
@@ -55,48 +54,69 @@ Sign Up
             align-items: center; /* Center vertically and horizontally */
             padding: 20px;
             box-sizing: border-box;
+            
         }
 
         form {
-            max-width: 400px;
+            max-width: 500px;
+            max-height:1000px;
             width: 100%;
             box-sizing: border-box;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            padding-border: 0;
+           background: rgb(4, 26, 58, 0.8);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        form h2 {
-            margin-bottom: 20px;
-            text-align: center;
         }
 
         form label {
             display: block;
             margin-bottom: 8px;
         }
+        .signup-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
         form input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 5px;
             box-sizing: border-box;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
         }
-
-        form button {
-            background-color: #3498db;
-            color: #fff;
+        
+        .signup-form {
+            max-width: 400px; /* Adjust as needed */
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        }
+        
+        
+        
+       
+        
+        
+        
+        .signup-form button {
+            width: 100%;
             padding: 10px;
             border: none;
             border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
             cursor: pointer;
-            width: 100%;
         }
-        /* ... (previous styles) ... */
-
+        
+        .signup-form button:hover {
+            background-color: #0056b3;
+        }
+        
         
         footer {
             background-color: rgba(4, 26, 58, 0.8);  /* Add alpha channel for transparency */
@@ -109,15 +129,6 @@ Sign Up
         footer p {
             margin: 0;
         }
-
-        footer .about,
-        footer .social {
-            width: 50%;
-            float: left;
-            box-sizing: border-box;
-            padding: 0 10px;
-        }
-/* ... (remaining styles) ... */
 
 
         @media (max-width: 768px) {
@@ -139,21 +150,36 @@ Sign Up
 
 {% block content %}
 
-    <section>
-        <form>
-            <h2>Sign Up</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+<section>
+    <form>
+        <h2 style="text-align: center">Sign Up</h2>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
 
-            <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="login.html" style="color: #ffffff;;">Login</a></p>
-        </form>
-    </section>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <br> <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="login.html" style="color: #ffffff;">Login</a></p><br>
+    </form>
+</section>
+
     
 {% endblock %}
