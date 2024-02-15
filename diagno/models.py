@@ -12,7 +12,7 @@ class Users(db.Model):
   password_hash = db.Column(db.String(length=60), nullable=False)
 
 
-# u1 = Users(fname='John', lname='Doe', age=20, gender='Male', email='john@gmail.com', password_hash='123456')
+# u1 = Users(fname='Harry', lname='Foe', age=20, gender='Male', email='john@gmail.com', password_hash='123456')
 
 
 class Item(db.Model):
