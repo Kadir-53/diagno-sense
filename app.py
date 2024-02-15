@@ -2,9 +2,10 @@ from flask import Flask
 from flask.helpers import redirect
 from flask.templating import render_template
 
+from flask import Flask
+app = Flask(__name__, static_url_path='/static')
+
 app = Flask(__name__)
-
-
 
 
 @app.route("/")
