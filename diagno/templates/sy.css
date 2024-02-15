@@ -1,21 +1,16 @@
 body {
-    margin: 0;
+     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('bg.webp'); /* Update the background image URL */
+    background-image: url("../static/images/bg.webp"); /* Update the background image URL */
     background-size: cover;
-    background-position: center;
+    background-position: center; {% endcomment %}
     background-repeat: no-repeat;
-    color: #fff; /* Set text color to contrast with background */
-    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    min-height: 100vh;
-    justify-content: center;
-}
 
+    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+    min-height: 100vh;
+    min-height: 100vh;}
 nav {
-    background-color: rgba(4, 26, 58, 0.8); 
+    background-color: rgba(4, 26, 58, 0.8);
     padding: 15px;
     position:absolute
      width: 100%;
@@ -24,4 +19,55 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav img {
+    height: 40px; /* Adjust the height as needed */
+    margin-left: 10px;
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    nav img {
+        margin: 0; /* Adjust margin as needed */
+    }
+}
+
+#container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(4, 26, 58, 0.8);
+        max-width: 500px;
+        border-radius: 10px;
+
+}
+#symptoms{
+    width: 200px; 
+    height: 30px;
+}
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color:white;
 }
