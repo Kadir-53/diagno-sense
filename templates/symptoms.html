@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sy.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sy.css') }}">
     <title>Predict Disease</title>
 </head>
 <body>
     <nav>
-        <img src="PROJECT LOGO.png" alt="Logo" style="height: 60px;">
+        <img src="/static/images/PROJECT LOGO.png" style="height: 60px;">
+
         <div>
             <a href="index.html">Home</a>
             <a href="about us.html">About Us</a>
@@ -16,17 +17,16 @@
         </div>
     </nav>
 
-
-
-  
-    <h1>Predict Disease</h1>
+    <h1 style="text-align: center;">Predict Disease</h1>
+<div id="container">
+    
     <form id="symptomsForm">
-        <label for="symptoms">Enter Symptoms (comma-separated):</label><br>
+        <label for="symptoms">Enter Symptoms (comma-separated):</label><br><br>
         <input type="text" id="symptoms" name="symptoms"><br>
-        <button type="submit">Predict</button>
+        <br><button type="submit">Predict</button>
     </form>
     <div id="result"></div>
-
+</div>
     <script>
         document.getElementById("symptomsForm").addEventListener("submit", function(event) {
             event.preventDefault();
