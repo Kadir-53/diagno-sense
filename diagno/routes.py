@@ -1,9 +1,10 @@
 from flask.helpers import flash
 from diagno import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from diagno.models import Item, Users
 from diagno.forms import RegisterForm
 from diagno import db
+from diagno.symptom import predictDisease, jsonify
 
 
 @app.route("/")
@@ -50,6 +51,13 @@ def login():
 @app.route("/symptoms")
 def symptoms():
   return render_template('symptoms.html')
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+  symptoms = request.form['symptoms']
+  predictions = predictDisease(symptoms)
+  return jsonify(predictions)
 
 
 @app.route("/market")
