@@ -11,21 +11,6 @@ with open('encoder.pkl', 'rb') as f:
 with open('data_dict.pkl', 'rb') as f:
   data_dict = pickle.load(f)
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-  return render_template('symptoms.html')
-
-
-@app.route('/predict', methods=['POST'])
-def predict():
-  symptoms = request.form['symptoms']
-  predictions = predictDisease(symptoms)
-  return jsonify(predictions)
-
-
 def predictDisease(symptoms):
   # Convert symptoms string to input data format
   input_data = [0] * len(data_dict["symptom_index"])
@@ -39,7 +24,3 @@ def predictDisease(symptoms):
   final_prediction = encoder.inverse_transform(final_prediction)[0]
 
   return {"final_prediction": final_prediction}
-
-
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', debug=True)
