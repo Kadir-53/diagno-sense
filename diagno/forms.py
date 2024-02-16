@@ -1,10 +1,17 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms import validators, IntegerField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange
+from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange, ValidationError
+from diagno.models import Users
 
 
 class RegisterForm(FlaskForm):
+
+  def validate_email(self, email_to_check):
+    email = Users.query.filter_by(email=email_to_check.data).first()
+    if email:
+      raise ValidationError('Email already exists')
+
   fname = StringField(label='First Name',
                       validators=[DataRequired(),
                                   Length(min=2, max=15)])

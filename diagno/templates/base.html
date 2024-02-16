@@ -25,7 +25,20 @@
             <a href="{{url_for('login')}}">Log In</a>
         </div>
       </nav>
-   
+
+  {% with message = get_flashed_messages(with_categories=true) %}
+    {% if message %}
+      {% for category, message in message %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+          <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close" >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {%endif%}
+  {%endwith%}
+    
 
     {% block content %}
     {% endblock %}
