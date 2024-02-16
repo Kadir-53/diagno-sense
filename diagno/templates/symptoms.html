@@ -7,15 +7,17 @@
     <title>Predict Disease</title>
 </head>
 <body>
-    <nav>
-        <img src="/static/images/PROJECT LOGO.png" style="height: 60px;">
-
+    <nav >
+        <img src="../static/images/PROJECT LOGO.png" alt="Logo" style="height: 60px;">
         <div>
-            <a href="index.html">Home</a>
-            <a href="about us.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('about')}}">About Us</a>
+            <a href="{{url_for('symptoms')}}">Predict</a>
+            <a href="{{url_for('contact')}}">Contact Us</a>
+            <a href="{{url_for('signup')}}">Signup</a>
+            <a href="{{url_for('login')}}">Log In</a>
         </div>
-    </nav>
+      </nav>
 
    
 <div id="container">

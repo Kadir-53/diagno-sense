@@ -5,33 +5,29 @@ body {
     background-size: cover;
     background-position: center; {% endcomment %}
     background-repeat: no-repeat;
-
+    background-attachment: fixed;
     backdrop-filter: blur(5px); /* Adjust the blur value as needed */
     min-height: 100vh;
     min-height: 100vh;}
-nav {
-    background-color: rgba(4, 26, 58, 0.8);
-    padding: 15px;
-    position:absolute
-     width: 100%;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    margin: 0 10px;
-    font-weight: bold;
-}
+    nav {
+        background-color: rgba(4, 26, 58, 0.8); /* Add alpha channel for transparency */
+        padding: 15px;
+        position:absolute
+         width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-nav img {
-    height: 40px; /* Adjust the height as needed */
-    margin-left: 10px;
-}
+      nav a {
+          color: #fff;
+          text-decoration: none;
+          padding: 10px;
+          margin: 0 10px;
+          font-weight: bold;
+      }
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -45,10 +41,16 @@ nav img {
     nav img {
         margin: 0; /* Adjust margin as needed */
     }
+
+    #container{
+        padding: 10px;
+        width: 50%;
+    }
 }
 
+
 #container {
-    width: 100%;
+    width: 50%;
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
@@ -60,11 +62,31 @@ nav img {
     background-color: rgba(4, 26, 58, 0.8);
         max-width: 500px;
         border-radius: 10px;
+        z-index: 1000;
+
+        justify-content: space-between;
+        align-items: center;
+
 
 }
+
+button[type="submit"] {
+    background-color:rgba(29, 143, 174, 0.8); /* Set default button color to blue */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: green; /* Change button color to green on hover */
+}
 #symptoms{
-    width: 200px; 
-    height: 30px;
+    width: 60%; 
+
 }
 #result {
     margin-top: 20px;
