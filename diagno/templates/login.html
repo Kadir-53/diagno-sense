@@ -146,13 +146,16 @@ Log In
             <h2>Log In</h2>
           
             <label for="username">Email:</label>
-            {{ form.email(class = "form-control" placeholder="Enter your email") }}
+            {{ form.email(class = "form-control", placeholder="Enter your email") }}
     
             <label for="password">Password:</label>
-            {{ form.password(class = "form-control" placeholder="Enter your password") }}
+            {{ form.password(class = "form-control", placeholder="Enter your password") }}
     
-            <button type="submit">Log In</button>
+           <br>
+           {{form.submit(class="btn btn-primary")}}
+
+            <p>Dont have an account? <a href="{{ url_for('signup') }}" style="color: #ffffff;">Sign Up</a></p><br>
         </form>
-    </section>
+     </section>
 
 {% endblock %}

@@ -3,6 +3,7 @@ from diagno import app, db
 from diagno.models import Item, Users
 from diagno.forms import RegisterForm, LoginForm
 from diagno.symptom import predictDisease
+from flask_login import login_user
 
 
 @app.route("/")
@@ -43,7 +44,20 @@ def signup():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
   form = LoginForm()
-  return render_template('login.html')
+  if form.validate_on_submit():
+    attempted_user = Users.query.filter_by(email=form.email.data).first()
+    if attempted_user and attempted_user.check_password(
+        attempted_password=form.password.data):
+      login_user(attempted_user)
+      flash(f'You are now logged in as {attempted_user.fname}',
+            category='success')
+      return redirect(url_for('index'))
+
+    else:
+      flash('Login unsuccessful. Please check email and password',
+            category='danger')
+
+  return render_template('login.html', form=form)
 
 
 @app.route("/symptoms")
