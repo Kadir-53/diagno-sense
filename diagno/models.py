@@ -1,4 +1,4 @@
-from diagno import db
+from diagno import db, bcrypt
 
 
 class Users(db.Model):
@@ -10,13 +10,22 @@ class Users(db.Model):
   email = db.Column(db.String(120), unique=True, nullable=False)
   password_hash = db.Column(db.String(128), nullable=False)
 
-  def __init__(self, fname, lname, age, gender, email, password_hash):
+  def __init__(self, fname, lname, age, gender, email, password):
     self.fname = fname
     self.lname = lname
     self.age = age
     self.gender = gender
     self.email = email
-    self.password_hash = password_hash
+    self.password = password
+
+  @property
+  def password(self):
+    return self.password
+
+  @password.setter
+  def password(self, plain_password):
+    self.password_hash = bcrypt.generate_password_hash(plain_password).decode(
+        'utf-8')
 
 
 # u2 = Users(fname='Harry', lname='Foe', age=26, gender='Male', email='harry@gmail.com', password_hash='12345678')

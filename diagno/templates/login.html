@@ -8,7 +8,7 @@ Log In
     <style>
          body {
             margin: 0;
-            font-family: 'Times New Roman', serif;
+            font-family: Arial, sans-serif;
             background-image: url('../static/images/bg login.jpg'); /* Update the background image URL */
             background-size: cover;
             background-position: center;
@@ -140,13 +140,16 @@ Log In
 {% block content %}
 
     <section>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+        <form method="post")>
+          {{ form.hidden_tag() }}
+          
             <h2>Log In</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+          
+            <label for="username">Email:</label>
+            {{ form.email(class = "form-control" placeholder="Enter your email") }}
     
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            {{ form.password(class = "form-control" placeholder="Enter your password") }}
     
             <button type="submit">Log In</button>
         </form>

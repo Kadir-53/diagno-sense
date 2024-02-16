@@ -1,10 +1,8 @@
-from flask.helpers import flash
-from diagno import app
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, jsonify, flash
+from diagno import app, db
 from diagno.models import Item, Users
-from diagno.forms import RegisterForm
-from diagno import db
-from diagno.symptom import predictDisease, jsonify
+from diagno.forms import RegisterForm, LoginForm
+from diagno.symptom import predictDisease
 
 
 @app.route("/")
@@ -31,7 +29,7 @@ def signup():
                            age=form.age.data,
                            gender=form.gender.data,
                            email=form.email.data,
-                           password_hash=form.password1.data)
+                           password=form.password1.data)
     db.session.add(user_to_create)
     db.session.commit()
     return redirect(url_for('login'))
@@ -39,12 +37,12 @@ def signup():
     for msg in form.errors.values():
       flash(f'There was an error with creating the user: {msg}',
             category='danger')
-
   return render_template('signup.html', form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
+  form = LoginForm()
   return render_template('login.html')
 
 
