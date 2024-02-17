@@ -3,7 +3,7 @@ from diagno import app, db
 from diagno.models import Item, Users
 from diagno.forms import RegisterForm, LoginForm
 from diagno.symptom import predictDisease
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 
 
 @app.route("/")
@@ -68,6 +68,7 @@ def logout():
 
 
 @app.route("/symptoms")
+@login_required
 def symptoms():
   return render_template('symptoms.html')
 
