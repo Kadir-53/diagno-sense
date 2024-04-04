@@ -129,3 +129,46 @@ def diabetes_prediction():
 @app.route('/diabetes_prediction_form')
 def diabetes_prediction_form():
   return render_template('diabetes_prediction_form.html')
+
+
+# Load the diabetes model
+model_path = os.path.join(os.path.dirname(__file__), 'heart_disease_model.sav')
+heart_disease_model = pickle.load(open(model_path, 'rb'))
+
+
+@app.route("/heart_disease")
+def heart_disease():
+  return render_template('heart_disease.html')
+
+
+@app.route('/heart_disease_prediction', methods=['POST'])
+def predict_heart_disease():
+  # Retrieve form data
+  age = float(request.form['age'])
+  sex = float(request.form['sex'])
+  cp = float(request.form['cp'])
+  trestbps = float(request.form['trestbps'])
+  chol = float(request.form['chol'])
+  fbs = float(request.form['fbs'])
+  restecg = float(request.form['restecg'])
+  thalach = float(request.form['thalach'])
+  exang = float(request.form['exang'])
+  oldpeak = float(request.form['oldpeak'])
+  slope = float(request.form['slope'])
+  ca = float(request.form['ca'])
+  thal = float(request.form['thal'])
+
+  # Perform prediction using the loaded model
+  predicted_result = heart_disease_model.predict([[
+      age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak,
+      slope, ca, thal
+  ]])
+
+  prediction_message = ""
+  if predicted_result[0] == 1:
+    prediction_message = 'The person is having heart disease'
+  else:
+    prediction_message = 'The person does not have any heart disease'
+
+  # Return the prediction result as a JSON object
+  return jsonify({"prediction_result": prediction_message})

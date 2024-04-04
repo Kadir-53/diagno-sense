@@ -13,7 +13,8 @@
         <a href="{{url_for('index')}}">Home</a>
         <a href="{{url_for('about')}}">About Us</a>
         
-        <a href="{{url_for('diabetes_prediction_form')}}">Diabetes Prediction</a>
+      <a href="{{url_for('diabetes_prediction_form')}}">Diabetes Prediction</a>
+      <a href="{{ url_for('heart_disease') }}">Heart Disease Prediction</a>
         <a href="{{url_for('contact')}}">Contact Us</a>
 
         {% if current_user.is_authenticated %}

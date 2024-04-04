@@ -1,0 +1,189 @@
+<!-- Include other input fields such as trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal -->
+{% extends 'base.html' %}
+
+{% block title %}
+Heart Disease Prediction Form
+{% endblock %}
+
+{% block style %}
+<style>
+  body {
+    margin-bottom: 0;
+    padding-bottom: 150px; 
+    font-family: Arial, sans-serif;
+    background-image: url('../static/images/heart.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(1px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  nav {
+    background-color: rgba(4, 26, 58, 0.8);
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+
+  nav img {
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  #form-container {
+    position: relative;
+    z-index: 1;
+    top: 120px; /* Adjust based on your navbar height */
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+
+  #prediction-container {
+    position: fixed;
+    top: 200px; /* Adjust based on your navbar and form height */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure the output stays above other content */
+    display: none;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(4, 26, 58, 0.8);
+    color: white;
+    padding: 15px;
+    z-index: 1;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style=" position: relative;top: 70px; margin-bottom: 150px; padding-bottom:15px;">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-white"style="background-color: rgba(4, 26, 58, 0.8);">
+                    <h4 class="mb-0">Heart Disease Prediction Form</h4>
+                </div>
+                <div class="card-body">
+                    <form id="heart-disease-form" method="post" action="/heart_disease_prediction">
+                        <div class="row mb-2">
+                            <div class="col-md-4">
+                                <label for="age" class="form-label">Age:</label>
+                                <input type="number" id="age" name="age" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="sex" class="form-label">Sex:</label>
+                                <input type="text" id="sex" name="sex" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cp" class="form-label">Chest Pain Type:</label>
+                                <input type="text" id="cp" name="cp" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="trestbps" class="form-label">Resting Blood Pressure (mm Hg):</label>
+                                <input type="number" id="trestbps" name="trestbps" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="chol" class="form-label">Serum Cholesterol (mg/dl):</label>
+                                <input type="number" id="chol" name="chol" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fbs" class="form-label">Fasting Blood Sugar (&gt; 120 mg/dl):</label>
+                                <input type="number" id="fbs" name="fbs" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-4">
+                                <label for="restecg" class="form-label">Resting Electrocardiographic Results:</label>
+                                <input type="number" id="restecg" name="restecg" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="thalach" class="form-label">Maximum Heart Rate Achieved:</label>
+                                <input type="number" id="thalach" name="thalach" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="exang" class="form-label">Exercise Induced Angina:</label>
+                                <input type="number" id="exang" name="exang" step="0.001" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-0">
+                            <div class="col-md-4">
+                                <label for="oldpeak" class="form-label">ST Depression Induced by Exercise:</label>
+                                <input type="number" id="oldpeak" name="oldpeak" step="0.001" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="slope" class="form-label">Slope of the Peak Exercise ST Segment:</label>
+                                <input type="number" id="slope" name="slope" step="0.001" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="ca" class="form-label">Number of Major Vessels (0-3) Colored by Flourosopy:</label>
+                                <input type="number" id="ca" name="ca" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-4">
+                                <label for="thal" class="form-label">Thalassemia:</label>
+                                <input type="number" id="thal" name="thal" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                        <div id="heart-disease-prediction" class="mt-3"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // AJAX request to get heart disease prediction result
+    const form = document.getElementById('heart-disease-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch('/heart_disease_prediction', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            const predictionDiv = document.getElementById('heart-disease-prediction');
+            predictionDiv.innerHTML = "<p>" + data.prediction_result + "</p>";
+        });
+    });
+</script>
+{% endblock %}
