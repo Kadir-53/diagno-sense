@@ -64,7 +64,7 @@ Heart Disease Prediction Form
     top: 120px; /* Adjust based on your navbar height */
     left: 50%;
     transform: translateX(-50%);
-
+    
   }
 
   #prediction-container {
@@ -105,11 +105,20 @@ Heart Disease Prediction Form
                             </div>
                             <div class="col-md-4">
                                 <label for="sex" class="form-label">Sex:</label>
-                                <input type="text" id="sex" name="sex" class="form-control" required>
+                                <select id="sex" name="sex" class="form-control" required>
+                                    <option value="0">Female</option>
+                                    <option value="1">Male</option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="cp" class="form-label">Chest Pain Type:</label>
-                                <input type="text" id="cp" name="cp" class="form-control" required>
+                                <label for="cp" class="form-label">Chest Pain Type:</label>
+                                <select id="cp" name="cp" class="form-control" required>
+                                    <option value="1">Typical Angina</option>
+                                    <option value="2">Atypical Angina</option>
+                                    <option value="3">Non-anginal Pain</option>
+                                    <option value="4">Asymptomatic</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -123,13 +132,20 @@ Heart Disease Prediction Form
                             </div>
                             <div class="col-md-4">
                                 <label for="fbs" class="form-label">Fasting Blood Sugar (&gt; 120 mg/dl):</label>
-                                <input type="number" id="fbs" name="fbs" class="form-control" required>
+                                <select id="fbs" name="fbs" class="form-control" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-4">
                                 <label for="restecg" class="form-label">Resting Electrocardiographic Results:</label>
-                                <input type="number" id="restecg" name="restecg" class="form-control" required>
+                                <select id="restecg" name="restecg" class="form-control" required>
+                                    <option value="0">Normal</option>
+                                    <option value="1">Having ST-T wave abnormality</option>
+                                    <option value="2">Showing probable or definite left ventricular hypertrophy</option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="thalach" class="form-label">Maximum Heart Rate Achieved:</label>
@@ -137,7 +153,10 @@ Heart Disease Prediction Form
                             </div>
                             <div class="col-md-4">
                                 <label for="exang" class="form-label">Exercise Induced Angina:</label>
-                                <input type="number" id="exang" name="exang" step="0.001" class="form-control" required>
+                                <select id="exang" name="exang" class="form-control" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-0">
