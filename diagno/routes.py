@@ -127,6 +127,7 @@ def diabetes_prediction():
 
 
 @app.route('/diabetes_prediction_form')
+@login_required
 def diabetes_prediction_form():
   return render_template('diabetes_prediction_form.html')
 
@@ -137,6 +138,7 @@ heart_disease_model = pickle.load(open(model_path, 'rb'))
 
 
 @app.route("/heart_disease")
+@login_required
 def heart_disease():
   return render_template('heart_disease.html')
 
