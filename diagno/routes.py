@@ -4,6 +4,9 @@ from diagno.models import Item, Users
 from diagno.forms import RegisterForm, LoginForm
 from diagno.symptom import predictDisease
 from flask_login import login_user, logout_user, login_required
+import os
+import pickle
+import pandas as pd
 
 
 @app.route("/")
@@ -84,3 +87,45 @@ def predict():
 def market():
   items = Item.query.all()
   return render_template('market.html', items=items)
+
+
+dataset_dir = os.path.join(os.path.dirname(__file__), 'dataset')
+model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.sav')
+diabetes_model = pickle.load(open(model_path, 'rb'))
+
+
+@app.route('/diabetes_prediction', methods=['GET', 'POST'])
+def diabetes_prediction():
+  if request.method == 'GET':
+    return render_template('diabetes_prediction.html')
+  elif request.method == 'POST':
+    # Get input data from the form
+    pregnancies = float(request.form['pregnancies'])
+    glucose = float(request.form['glucose'])
+    blood_pressure = float(request.form['blood_pressure'])
+    skin_thickness = float(request.form['skin_thickness'])
+    insulin = float(request.form['insulin'])
+    bmi = float(request.form['bmi'])
+    diabetes_pedigree_function = float(
+        request.form['diabetes_pedigree_function'])
+    age = float(request.form['age'])
+
+    # Perform prediction
+    user_input = [
+        pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi,
+        diabetes_pedigree_function, age
+    ]
+    diab_prediction = diabetes_model.predict([user_input])
+
+    # Return prediction result
+    if diab_prediction[0] == 1:
+      prediction_result = 'The person is diabetic'
+    else:
+      prediction_result = 'The person is not diabetic'
+
+    return jsonify({"prediction_result": prediction_result})
+
+
+@app.route('/diabetes_prediction_form')
+def diabetes_prediction_form():
+  return render_template('diabetes_prediction_form.html')

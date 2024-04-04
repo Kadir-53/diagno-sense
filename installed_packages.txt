@@ -1,0 +1,1 @@
+bcrypt blinker click contourpy cycler dnspython email-validator flask flask-bcrypt flask-login flask-sqlalchemy flask-wtf fonttools greenlet idna itsdangerous jinja2 joblib kiwisolver markupsafe matplotlib numpy packaging pandas pillow pyparsing python-dateutil pytz scikit-learn scipy seaborn six sqlalchemy threadpoolctl tzdata werkzeug wtforms 
