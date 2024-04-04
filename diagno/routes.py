@@ -75,9 +75,9 @@ def symptoms():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-  symptoms = request.form['symptoms']
-  predictions = predictDisease(symptoms)
-  return jsonify(predictions)
+    symptoms = request.form['symptoms']
+    final_prediction = predictDisease(symptoms)
+    return jsonify({'final_prediction': final_prediction})
 
 
 @app.route("/market")
