@@ -44,6 +44,13 @@ def heart_disease_predictions():
     # Render the template with the predictions data
     return render_template('heart_disease_predictions.html', heart_disease_predictions=predictions)
 
+@app.route('/records/symptom_predictions')
+def symptom_predictions():
+    # Query the database for all SymptomPrediction records
+    predictions = SymptomPrediction.query.all()
+    # Render the template with the predictions data
+    return render_template('symptom_predictions.html', symptom_predictions=predictions)
+
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():

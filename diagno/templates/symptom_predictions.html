@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Symptom Predictions
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">Symptom Predictions</h5>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User</th>
+                        <th>Symptoms</th>
+                        <th>Predicted Disease</th>
+                        <th>Date Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prediction in symptom_predictions %}
+                    <tr>
+                        <td>{{ prediction.id }}</td>
+                        <td>{{ prediction.user_id }}</td>
+                        <td>{{ prediction.symptoms }}</td>
+                        <td>{{ prediction.predicted_disease }}</td>
+                        <td>{{ prediction.date_time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
