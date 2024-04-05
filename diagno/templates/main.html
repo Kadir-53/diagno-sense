@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+  body {
+
+    margin-bottom: 0;
+        padding-bottom: 150px; 
+    font-family: Arial, sans-serif;
+    background-image: url('../static/images/predictionBG.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(1px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  nav {
+    background-color: rgba(4, 26, 58, 0.8);
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+
+  nav img {
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  #form-container {
+    position: fixed;
+    top: 120px; /* Adjust based on your navbar height */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure the form stays above other content */
+}
+
+#prediction-container {
+    position: fixed;
+    top: 200px; /* Adjust based on your navbar and form height */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure the output stays above other content */
+    display: none;
+}
+
+  footer {
+
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(4, 26, 58, 0.8);
+        color: white;
+        padding: 15px;
+
+
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/multipledisease.jpg" class="card-img-top" alt="Other Disease">
+        <div class="card-body">
+          <h5 class="card-title">Multiple Disease Prediction</h5>
+
+          <a href="/symptoms" class="btn btn-primary">Predict Multiple Disease</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/heartdisease.jpg" class="card-img-top" alt="Heart Disease">
+        <div class="card-body">
+          <h5 class="card-title">Heart Disease Prediction</h5>
+
+          <a href="/heart_disease" class="btn btn-primary">Predict Heart Disease</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/diabetesbg.jpg" class="card-img-top" alt="Diabetes">
+        <div class="card-body">
+          <h5 class="card-title">Diabetes Prediction</h5>
+
+          <a href="/diabetes_prediction_form" class="btn btn-primary">Predict Diabetes</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

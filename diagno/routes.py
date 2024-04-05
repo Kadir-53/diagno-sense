@@ -222,3 +222,9 @@ def predict_heart_disease():
   prediction_message = 'The person is having heart disease' if predicted_result[
       0] == 1 else 'The person does not have any heart disease'
   return jsonify({"prediction_result": prediction_message})
+
+
+@app.route('/main')
+@login_required
+def main():
+  return render_template('main.html')
