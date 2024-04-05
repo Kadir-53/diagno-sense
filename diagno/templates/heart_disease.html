@@ -100,6 +100,10 @@ Heart Disease Prediction Form
                     <form id="heart-disease-form" method="post" action="/heart_disease_prediction">
                         <div class="row mb-2">
                             <div class="col-md-4">
+                                <label for="name" class="form-label">Name: </label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
                                 <label for="age" class="form-label">Age:</label>
                                 <input type="number" id="age" name="age" class="form-control" required>
                             </div>
@@ -110,16 +114,7 @@ Heart Disease Prediction Form
                                     <option value="1">Male</option>
                                 </select>
                             </div>
-                            <div class="col-md-4">
-                                <label for="cp" class="form-label">Chest Pain Type:</label>
-                                <label for="cp" class="form-label">Chest Pain Type:</label>
-                                <select id="cp" name="cp" class="form-control" required>
-                                    <option value="1">Typical Angina</option>
-                                    <option value="2">Atypical Angina</option>
-                                    <option value="3">Non-anginal Pain</option>
-                                    <option value="4">Asymptomatic</option>
-                                </select>
-                            </div>
+
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-4">
@@ -177,6 +172,16 @@ Heart Disease Prediction Form
                             <div class="col-md-4">
                                 <label for="thal" class="form-label">Thalassemia:</label>
                                 <input type="number" id="thal" name="thal" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cp" class="form-label">Chest Pain Type:</label>
+                                <label for="cp" class="form-label">Chest Pain Type:</label>
+                                <select id="cp" name="cp" class="form-control" required>
+                                    <option value="1">Typical Angina</option>
+                                    <option value="2">Atypical Angina</option>
+                                    <option value="3">Non-anginal Pain</option>
+                                    <option value="4">Asymptomatic</option>
+                                </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Predict</button>
