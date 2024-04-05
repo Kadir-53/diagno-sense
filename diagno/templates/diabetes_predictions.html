@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Diabetes Predictions
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">Diabetes Predictions</h5>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User</th>
+                        <th>Name</th>
+                        <th>Pregnancies</th>
+                        <th>Glucose</th>
+                        <th>Blood Pressure</th>
+                        <th>Skin Thickness</th>
+                        <th>Insulin</th>
+                        <th>BMI</th>
+                        <th>Diabetes Pedigree Function</th>
+                        <th>Age</th>
+                        <th>Predicted Result</th>
+                        <th>Date Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prediction in prediction %}
+                    <tr>
+                        <td>{{ prediction.id }}</td>
+                        <td>{{ prediction.user.username }}</td>
+                        <td>{{ prediction.name }}</td>
+                        <td>{{ prediction.pregnancies }}</td>
+                        <td>{{ prediction.glucose }}</td>
+                        <td>{{ prediction.blood_pressure }}</td>
+                        <td>{{ prediction.skin_thickness }}</td>
+                        <td>{{ prediction.insulin }}</td>
+                        <td>{{ prediction.bmi }}</td>
+                        <td>{{ prediction.diabetes_pedigree_function }}</td>
+                        <td>{{ prediction.age }}</td>
+                        <td>{{ prediction.predicted_result }}</td>
+                        <td>{{ prediction.date_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

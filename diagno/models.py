@@ -1,7 +1,7 @@
 from diagno import db, bcrypt, login_manager
 from flask_login import UserMixin
 from datetime import datetime, timezone
-
+import pytz
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -79,7 +79,9 @@ class HeartDiseasePrediction(db.Model):
                                             lazy=True))
 
   def __repr__(self):
-    return f"HeartDiseasePrediction(id={self.id}, user_id={self.user_id}, name='{self.name}', age={self.age}, sex={self.sex}, trestbps={self.trestbps}, chol={self.chol}, fbs={self.fbs}, restecg={self.restecg}, thalach={self.thalach}, exang={self.exang}, oldpeak={self.oldpeak}, slope={self.slope}, ca={self.ca}, thal={self.thal}, cp={self.cp}, predicted_result={self.predicted_result}, date_time={self.date_time})"
+    local_timezone = pytz.timezone('Asia/Kolkata')
+    local_time = self.date_time.astimezone(local_timezone)
+    return f"HeartDiseasePrediction(id={self.id}, user_id={self.user_id}, name='{self.name}', age={self.age}, sex={self.sex}, trestbps={self.trestbps}, chol={self.chol}, fbs={self.fbs}, restecg={self.restecg}, thalach={self.thalach}, exang={self.exang}, oldpeak={self.oldpeak}, slope={self.slope}, ca={self.ca}, thal={self.thal}, cp={self.cp}, predicted_result={self.predicted_result}, date_time={local_time})"
 
 
 class DiabetesPrediction(db.Model):
@@ -95,12 +97,10 @@ class DiabetesPrediction(db.Model):
   diabetes_pedigree_function = db.Column(db.Float, nullable=False)
   age = db.Column(db.Float, nullable=False)
   predicted_result = db.Column(db.Integer, nullable=False)  # 0 or 1
-  date_time = db.Column(db.DateTime,
-                        nullable=False,
-                        default=datetime.now(timezone.utc))
+  date_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
   user = db.relationship('Users',
                          backref=db.backref('diabetes_predictions', lazy=True))
 
   def __repr__(self):
-    return f"DiabetesPrediction(id={self.id}, user_id={self.user_id}, name='{self.name}', pregnancies={self.pregnancies}, glucose={self.glucose}, blood_pressure={self.blood_pressure}, skin_thickness={self.skin_thickness}, insulin={self.insulin}, bmi={self.bmi}, diabetes_pedigree_function={self.diabetes_pedigree_function}, age={self.age}, predicted_result={self.predicted_result}, date_time={self.date_time})"
+        return f"DiabetesPrediction(id={self.id}, user_id={self.user_id}, name='{self.name}', pregnancies={self.pregnancies}, glucose={self.glucose}, blood_pressure={self.blood_pressure}, skin_thickness={self.skin_thickness}, insulin={self.insulin}, bmi={self.bmi}, diabetes_pedigree_function={self.diabetes_pedigree_function}, age={self.age}, predicted_result={self.predicted_result}, date_time={self.date_time})"

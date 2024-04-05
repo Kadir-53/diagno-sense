@@ -1,0 +1,66 @@
+<!-- heart_disease_predictions.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+Heart Disease Predictions
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">Heart Disease Predictions</h5>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Trestbps</th>
+                        <th>Chol</th>
+                        <th>Fbs</th>
+                        <th>Restecg</th>
+                        <th>Thalach</th>
+                        <th>Exang</th>
+                        <th>Oldpeak</th>
+                        <th>Slope</th>
+                        <th>Ca</th>
+                        <th>Thal</th>
+                        <th>Cp</th>
+                        <th>Predicted Result</th>
+                        <th>Date Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prediction in heart_disease_predictions %}
+                    <tr>
+                        <td>{{ prediction.id }}</td>
+                        <td>{{ prediction.user.username }}</td>
+                        <td>{{ prediction.name }}</td>
+                        <td>{{ prediction.age }}</td>
+                        <td>{{ prediction.sex }}</td>
+                        <td>{{ prediction.trestbps }}</td>
+                        <td>{{ prediction.chol }}</td>
+                        <td>{{ prediction.fbs }}</td>
+                        <td>{{ prediction.restecg }}</td>
+                        <td>{{ prediction.thalach }}</td>
+                        <td>{{ prediction.exang }}</td>
+                        <td>{{ prediction.oldpeak }}</td>
+                        <td>{{ prediction.slope }}</td>
+                        <td>{{ prediction.ca }}</td>
+                        <td>{{ prediction.thal }}</td>
+                        <td>{{ prediction.cp }}</td>
+                        <td>{{ prediction.predicted_result }}</td>
+                        <td>{{ prediction.date_time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

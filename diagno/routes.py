@@ -9,6 +9,7 @@ import os
 import pickle
 import pandas as pd
 from . import login_manager
+import pytz
 
 
 @app.route("/")
@@ -24,6 +25,24 @@ def about():
 @app.route("/contact")
 def contact():
   return render_template('contact.html')
+
+@app.route("/records/diabetes")
+@login_required
+def diabetes_predictions():
+    # Query the database for all DiabetesPrediction records
+    predictions = DiabetesPrediction.query.all()
+    print(predictions)
+    ist_timezone = pytz.timezone('Asia/Kolkata')
+    for prediction in predictions:
+        prediction.date_time = prediction.date_time.astimezone(ist_timezone)
+    return render_template('diabetes_predictions.html', prediction=predictions)
+
+@app.route('/records/heartdisease')
+def heart_disease_predictions():
+    # Query the database for all HeartDiseasePrediction records
+    predictions = HeartDiseasePrediction.query.all()
+    # Render the template with the predictions data
+    return render_template('heart_disease_predictions.html', heart_disease_predictions=predictions)
 
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -76,7 +95,6 @@ def logout():
 @login_required
 def symptoms():
   return render_template('symptoms.html')
-
 
 
 @app.route('/predict', methods=['POST'])
@@ -223,9 +241,3 @@ def predict_heart_disease():
   prediction_message = 'The person is having heart disease' if predicted_result[
       0] == 1 else 'The person does not have any heart disease'
   return jsonify({"prediction_result": prediction_message})
-
-
-@app.route('/main')
-@login_required
-def main():
-  return render_template('main.html')
