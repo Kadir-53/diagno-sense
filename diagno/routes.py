@@ -78,6 +78,7 @@ def symptoms():
   return render_template('symptoms.html')
 
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
   symptoms = request.form['symptoms']
