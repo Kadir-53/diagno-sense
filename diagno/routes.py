@@ -1,12 +1,14 @@
 from flask import render_template, redirect, url_for, request, jsonify, flash
 from diagno import app, db
-from diagno.models import Item, Users
+from diagno.models import Users, SymptomPrediction, HeartDiseasePrediction, DiabetesPrediction
 from diagno.forms import RegisterForm, LoginForm
 from diagno.symptom import predictDisease
-from flask_login import login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user, login_required
+from datetime import datetime, timezone
 import os
 import pickle
 import pandas as pd
+from . import login_manager
 
 
 @app.route("/")
@@ -80,26 +82,32 @@ def symptoms():
 def predict():
   symptoms = request.form['symptoms']
   final_prediction = predictDisease(symptoms)
+
+  # Save to the database
+  symptom_prediction = SymptomPrediction(user_id=current_user.id,
+                                         symptoms=symptoms,
+                                         predicted_disease=final_prediction)
+  db.session.add(symptom_prediction)
+  db.session.commit()
+
   return jsonify({'final_prediction': final_prediction})
 
 
-@app.route("/market")
-def market():
-  items = Item.query.all()
-  return render_template('market.html', items=items)
-
+# @app.route("/market")
+# def market():
+#   items = Item.query.all()
+#   return render_template('market.html', items=items)
 
 dataset_dir = os.path.join(os.path.dirname(__file__), 'dataset')
 model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.sav')
 diabetes_model = pickle.load(open(model_path, 'rb'))
 
 
-@app.route('/diabetes_prediction', methods=['GET', 'POST'])
+@app.route('/diabetes_prediction', methods=['POST'])
 def diabetes_prediction():
-  if request.method == 'GET':
-    return render_template('diabetes_prediction.html')
-  elif request.method == 'POST':
+  if request.method == 'POST':
     # Get input data from the form
+    name = request.form['name']  # Fetch the user's name
     pregnancies = float(request.form['pregnancies'])
     glucose = float(request.form['glucose'])
     blood_pressure = float(request.form['blood_pressure'])
@@ -117,12 +125,25 @@ def diabetes_prediction():
     ]
     diab_prediction = diabetes_model.predict([user_input])
 
-    # Return prediction result
-    if diab_prediction[0] == 1:
-      prediction_result = 'The person is diabetic'
-    else:
-      prediction_result = 'The person is not diabetic'
+    # Save prediction to database
+    new_prediction = DiabetesPrediction(
+        user_id=current_user.id,
+        name=name,
+        pregnancies=pregnancies,
+        glucose=glucose,
+        blood_pressure=blood_pressure,
+        skin_thickness=skin_thickness,
+        insulin=insulin,
+        bmi=bmi,
+        diabetes_pedigree_function=diabetes_pedigree_function,
+        age=age,
+        predicted_result=int(diab_prediction[0]))
+    db.session.add(new_prediction)
+    db.session.commit()
 
+    # Return prediction result
+    prediction_result = 'The person is diabetic' if diab_prediction[
+        0] == 1 else 'The person is not diabetic'
     return jsonify({"prediction_result": prediction_result})
 
 
@@ -137,6 +158,11 @@ model_path = os.path.join(os.path.dirname(__file__), 'heart_disease_model.sav')
 heart_disease_model = pickle.load(open(model_path, 'rb'))
 
 
+@login_manager.user_loader
+def load_user(user_id):
+  return Users.query.get(int(user_id))
+
+
 @app.route("/heart_disease")
 @login_required
 def heart_disease():
@@ -144,8 +170,10 @@ def heart_disease():
 
 
 @app.route('/heart_disease_prediction', methods=['POST'])
+# @login_required
 def predict_heart_disease():
   # Retrieve form data
+  name = request.form['name']  # Added name field
   age = float(request.form['age'])
   sex = float(request.form['sex'])
   cp = float(request.form['cp'])
@@ -166,11 +194,31 @@ def predict_heart_disease():
       slope, ca, thal
   ]])
 
-  prediction_message = ""
-  if predicted_result[0] == 1:
-    prediction_message = 'The person is having heart disease'
-  else:
-    prediction_message = 'The person does not have any heart disease'
+  # Create a new HeartDiseasePrediction object
+  new_prediction = HeartDiseasePrediction(
+      user_id=current_user.id,
+      name=name,
+      age=age,
+      sex=sex,
+      trestbps=trestbps,
+      chol=chol,
+      fbs=fbs,
+      restecg=restecg,
+      thalach=thalach,
+      exang=exang,
+      oldpeak=oldpeak,
+      slope=slope,
+      ca=ca,
+      thal=thal,
+      cp=cp,
+      predicted_result=int(predicted_result[0])  # Assign the predicted result
+  )
+
+  # Add the new prediction to the database
+  db.session.add(new_prediction)
+  db.session.commit()
 
   # Return the prediction result as a JSON object
+  prediction_message = 'The person is having heart disease' if predicted_result[
+      0] == 1 else 'The person does not have any heart disease'
   return jsonify({"prediction_result": prediction_message})
