@@ -14,8 +14,8 @@ Diabetes Predictions
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>User</th>
+                        <!-- <th>#</th> -->
+                        <!-- <th>User</th> -->
                         <th>Name</th>
                         <th>Pregnancies</th>
                         <th>Glucose</th>
@@ -30,10 +30,10 @@ Diabetes Predictions
                     </tr>
                 </thead>
                 <tbody>
-                    {% for prediction in prediction %}
+                    {% for prediction in predictions %}
                     <tr>
-                        <td>{{ prediction.id }}</td>
-                        <td>{{ prediction.user.username }}</td>
+                        <!-- <td>{{ prediction.id }}</td> -->
+                        <!-- <td>{{ prediction.user.username }}</td> -->
                         <td>{{ prediction.name }}</td>
                         <td>{{ prediction.pregnancies }}</td>
                         <td>{{ prediction.glucose }}</td>

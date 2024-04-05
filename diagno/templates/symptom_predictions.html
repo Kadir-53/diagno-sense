@@ -14,21 +14,21 @@ Symptom Predictions
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>User</th>
+                        <!-- <th>#</th> -->
+                        <!-- <th>User</th> -->
                         <th>Symptoms</th>
                         <th>Predicted Disease</th>
                         <th>Date Time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for prediction in symptom_predictions %}
+                    {% for prediction in predictions %}
                     <tr>
-                        <td>{{ prediction.id }}</td>
-                        <td>{{ prediction.user_id }}</td>
+                        <!-- <td>{{ prediction.id }}</td> -->
+                        <!-- <td>{{ prediction.user_id }}</td> -->
                         <td>{{ prediction.symptoms }}</td>
                         <td>{{ prediction.predicted_disease }}</td>
-                        <td>{{ prediction.date_time }}</td>
+                        <td>{{ prediction.date_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

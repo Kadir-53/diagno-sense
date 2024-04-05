@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">Dashboard</h5>
+        </div>
+        <div class="card-body">
+            <h3>Welcome, {{ current_user.fname }}!</h3>
+            <p>Here you can see your customized information and view your records history.</p>
+            <ul>
+                <li><strong>First Name:</strong> {{ current_user.fname }}</li>
+                <li><strong>Last Name:</strong> {{ current_user.lname }}</li>
+                <li><strong>Age:</strong> {{ current_user.age }}</li>
+                <li><strong>Gender:</strong> {{ current_user.gender }}</li>
+            </ul>
+            <a href="{{ url_for('customize_user') }}" class="btn btn-primary">Customize Information</a>
+            <a href="{{ url_for('symptom_predictions') }}" class="btn btn-primary">Disease Records</a>
+            <a href="{{ url_for('diabetes_predictions') }}" class="btn btn-primary">Diabetes Records</a>
+            <a href="{{ url_for('heart_disease_predictions') }}" class="btn btn-primary">Heart Disease Records</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

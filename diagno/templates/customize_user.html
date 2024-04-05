@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Customize User Information
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: rgba(4, 26, 58, 0.8);">
+            <h5 class="mb-0">Customize User Information</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" value="{{ current_user.fname }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" value="{{ current_user.lname }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" value="{{ current_user.age }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-control" id="gender" name="gender" required>
+                        <option value="male" {% if current_user.gender == 'male' %} selected {% endif %}>Male</option>
+                        <option value="female" {% if current_user.gender == 'female' %} selected {% endif %}>Female</option>
+                        <option value="other" {% if current_user.gender == 'other' %} selected {% endif %}>Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

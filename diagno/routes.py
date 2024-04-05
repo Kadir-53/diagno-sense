@@ -26,30 +26,40 @@ def about():
 def contact():
   return render_template('contact.html')
 
+from flask_login import current_user
+
 @app.route("/records/diabetes")
 @login_required
 def diabetes_predictions():
-    # Query the database for all DiabetesPrediction records
-    predictions = DiabetesPrediction.query.all()
-    print(predictions)
+    # Query the database for DiabetesPrediction records of the current user
+    predictions = DiabetesPrediction.query.filter_by(user_id=current_user.id).all()
     ist_timezone = pytz.timezone('Asia/Kolkata')
     for prediction in predictions:
         prediction.date_time = prediction.date_time.astimezone(ist_timezone)
-    return render_template('diabetes_predictions.html', prediction=predictions)
+    return render_template('diabetes_predictions.html', predictions=predictions)
+
 
 @app.route('/records/heartdisease')
+@login_required
 def heart_disease_predictions():
-    # Query the database for all HeartDiseasePrediction records
-    predictions = HeartDiseasePrediction.query.all()
-    # Render the template with the predictions data
-    return render_template('heart_disease_predictions.html', heart_disease_predictions=predictions)
+    # Query the database for HeartDiseasePrediction records of the current user
+    predictions = HeartDiseasePrediction.query.filter_by(user_id=current_user.id).all()
+    ist_timezone = pytz.timezone('Asia/Kolkata')
+    for prediction in predictions:
+        prediction.date_time = prediction.date_time.astimezone(ist_timezone)
+    return render_template('heart_disease_predictions.html', predictions=predictions)
+
 
 @app.route('/records/symptom_predictions')
+@login_required
 def symptom_predictions():
-    # Query the database for all SymptomPrediction records
-    predictions = SymptomPrediction.query.all()
-    # Render the template with the predictions data
-    return render_template('symptom_predictions.html', symptom_predictions=predictions)
+    # Query the database for SymptomPrediction records of the current user
+    predictions = SymptomPrediction.query.filter_by(user_id=current_user.id).all()
+    ist_timezone = pytz.timezone('Asia/Kolkata')
+    for prediction in predictions:
+        prediction.date_time = prediction.date_time.astimezone(ist_timezone)
+    return render_template('symptom_predictions.html', predictions=predictions)
+
 
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -96,6 +106,23 @@ def logout():
   logout_user()
   flash('You have been logged out', category='info')
   return redirect(url_for('index'))
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/customize_user', methods=['GET', 'POST'])
+@login_required
+def customize_user():
+    if request.method == 'POST':
+        current_user.fname = request.form['fname']
+        current_user.lname = request.form['lname']
+        current_user.age = int(request.form['age'])
+        current_user.gender = request.form['gender']
+        db.session.commit()
+        return redirect(url_for('dashboard'))  # Redirect to the dashboard or any other page
+    return render_template('customize_user.html')
 
 
 @app.route("/symptoms")

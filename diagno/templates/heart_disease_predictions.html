@@ -15,8 +15,8 @@ Heart Disease Predictions
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>User</th>
+                        <!-- <th>#</th> -->
+                        <!-- <th>User</th> -->
                         <th>Name</th>
                         <th>Age</th>
                         <th>Sex</th>
@@ -36,10 +36,10 @@ Heart Disease Predictions
                     </tr>
                 </thead>
                 <tbody>
-                    {% for prediction in heart_disease_predictions %}
+                    {% for prediction in predictions %}
                     <tr>
-                        <td>{{ prediction.id }}</td>
-                        <td>{{ prediction.user.username }}</td>
+                        <!-- <td>{{ prediction.id }}</td> -->
+                        <!-- <td>{{ prediction.user.username }}</td> -->
                         <td>{{ prediction.name }}</td>
                         <td>{{ prediction.age }}</td>
                         <td>{{ prediction.sex }}</td>
@@ -55,7 +55,7 @@ Heart Disease Predictions
                         <td>{{ prediction.thal }}</td>
                         <td>{{ prediction.cp }}</td>
                         <td>{{ prediction.predicted_result }}</td>
-                        <td>{{ prediction.date_time }}</td>
+                        <td>{{ prediction.date_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
